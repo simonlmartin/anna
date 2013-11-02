@@ -1,0 +1,11 @@
+{
+    "name": "website",
+    "version": "0.0.1",
+    "description": "Another good website based on Anna Web Framework",
+    "main": "index.js",
+    "dependencies": {
+        "anna-core": "~1.x",
+        "anna-shared": "~1.x",
+        "anna-app-static_pages": "~1.x"
+    }
+}

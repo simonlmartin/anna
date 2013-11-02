@@ -1,0 +1,17 @@
+{
+	"bind": {
+		"website": {
+			"host": "127.0.0.1",
+			"port": 8000
+		},
+		"console": {
+			"host": "127.0.0.1",
+			"port": 8001
+		}
+	},
+	"apps": {
+		"static_pages": {
+			"urls": []
+		}
+	}
+}
