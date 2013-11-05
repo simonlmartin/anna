@@ -14,6 +14,7 @@ cmd
 	.action(function (env) {
 		var workingDir = path.resolve(env.directory);
 		if (fs.existsSync(workingDir)) {
+			console.error("Starting Anna-enabled webserver...");
 			runServer(workingDir);
 		} else {
 			console.error("Directory", workingDir, "doesn't exist");
@@ -62,9 +63,11 @@ function runServer (workingDir) {
 			throw new Error("index.js doesn't exist (probably "+workingDir+' is not an Anna-enabled project\'s directory)');
 		}
 
-		exec("/usr/bin/env node index.js", function (err, stdout, stderr) {
+		var child = exec("/usr/bin/env node index.js", function (err, stdout, stderr) {
 			if (err) throw err;
 		});
+		child.stdout.pipe(process.stdout);
+		child.stderr.pipe(process.stderr);
 	} catch (err) {
 		console.error("Cannot run webserver:", err.code ? err.code : "", err.message);
 	}
